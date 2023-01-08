@@ -1,8 +1,8 @@
 import css from './formButton.module.css';
 
-export const FormButton = ({ text, type }) => {
+export const FormButton = ({ text, type, onRemove }) => {
   return (
-    <button className={css.btn} type={type}>
+    <button onClick={onRemove} className={css.btn} type={type}>
       {text}
     </button>
   );

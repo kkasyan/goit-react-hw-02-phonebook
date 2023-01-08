@@ -8,7 +8,7 @@ export const Item = ({ contact: { name, number, id }, removeContact }) => {
     <>
       <p className={css.contactItem}>{name}</p>
       <p className={css.contactItem}>{number}</p>
-      <FormButton onClick={() => removeContact(id)} text="Delete" />
+      <FormButton onRemove={() => removeContact(id)} text="Delete" />
     </>
   );
 };

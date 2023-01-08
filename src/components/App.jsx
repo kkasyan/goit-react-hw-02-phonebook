@@ -25,7 +25,7 @@ export class App extends Component {
     if (
       contacts.find(
         contact =>
-          contact.name.toLowerCase() === data.name.toLowerCase &&
+          contact.name.toLowerCase() === data.name.toLowerCase() &&
           contact.number === data.number
       )
     ) {
@@ -43,17 +43,12 @@ export class App extends Component {
   };
 
   removeContact = contactId => {
-    console.log('click', contactId);
     this.setState(({ contacts }) => {
       const newContacts = contacts.filter(contact => contact.id !== contactId);
       return {
         contacts: newContacts,
       };
     });
-    ///
-    // this.setState(prevState => ({
-    //   contacts: prevState.contacts.filter(contact => contact.id !== contactId),
-    // }));
   };
 
   changeFilter = e => {
@@ -75,15 +70,20 @@ export class App extends Component {
       <div className={css.wrap}>
         <h1>Phonebook</h1>
         <ContactForm onSubmit={addContact} />
-        <h2>Contacts</h2>
-        {contacts.length > 0 && (
-          <Filter value={filter} onChange={changeFilter} />
-        )}
-        {contacts.length > 0 ? (
-          <ContactList items={filteredContacts} removeContact={removeContact} />
-        ) : (
-          <p className={css.noContacts}>Huh... Still no contacts here!</p>
-        )}
+        <section className={css.list}>
+          <h2>Contacts</h2>
+          {contacts.length > 0 && (
+            <Filter value={filter} onChange={changeFilter} />
+          )}
+          {contacts.length > 0 ? (
+            <ContactList
+              items={filteredContacts}
+              removeContact={removeContact}
+            />
+          ) : (
+            <p className={css.noContacts}>Huh... Still no contacts here!</p>
+          )}
+        </section>
       </div>
     );
   }
