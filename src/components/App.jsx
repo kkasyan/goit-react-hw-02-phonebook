@@ -71,7 +71,7 @@ export class App extends Component {
         <h1>Phonebook</h1>
         <ContactForm onSubmit={addContact} />
         <section className={css.list}>
-          <h2>Contacts</h2>
+          <h2 className={css.contactsHeader}>Contacts</h2>
           {contacts.length > 0 && (
             <Filter value={filter} onChange={changeFilter} />
           )}
